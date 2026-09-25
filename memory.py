@@ -1,10 +1,10 @@
-from torchrl.data import TensorDictReplayBuffer, LazyMemmapStorage
+from torchrl.data import TensorDictReplayBuffer, LazyTensorStorage
 from tensordict import TensorDict
 import torch
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class Memory:
     def __init__(self):
-        self.memory = TensorDictReplayBuffer(storage=LazyMemmapStorage(100000,device=torch.device("cpu")))
+        self.memory = TensorDictReplayBuffer(storage=LazyTensorStorage(100000,device=torch.device("cpu")))
         self.batch_size = 32
     def cache(self, state, next_state, action, reward,done):
         def first_if_tuple(x):

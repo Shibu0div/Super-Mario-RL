@@ -1,0 +1,11 @@
+supermariov0:
+  exploration_rate : 1
+  exploration_rate_decay : 0.99999975
+  exploration_rate_min : 0.1
+  save_every : 500000
+  gamma : 0.9
+  batch_size : 32
+  burnin : 10000
+  learn_every : 3
+  sync_every : 10000
+  

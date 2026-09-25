@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class dqn(nn.Module):
-    def __int__(self,input_dim,output_dim):
+    def __init__(self,input_dim,output_dim):
         super(dqn,self).__init__()
         c,h,w = input_dim
          
@@ -33,9 +33,9 @@ class dqn(nn.Module):
         self.target.load_state_dict(self.online.state_dict())
         for p in self.target.parameters(): 
             p.requires_grad = False 
-        def forward(self,input,model): 
-            if model=="online": 
-                return self.online(input)
-            elif model=="target": 
-                return self.target(input)
+    def forward(self,input,model): 
+        if model=="online": 
+            return self.online(input)
+        elif model=="target": 
+            return self.target(input)
         
